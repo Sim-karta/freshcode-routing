@@ -1,13 +1,19 @@
 const USERS_API_URL = "https://dummyjson.com/users";
 
-export function getUsers() {
-    return fetch(USERS_API_URL)
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error(`Помилка завантаження: ${res.status}`);
-            }
+function fetchJson(url) {
+    return fetch(url).then((response) => {
+        if (!response.ok) {
+            throw new Error(`Помилка завантаження: ${response.status}`);
+        }
 
-            return res.json();
-        })
-        .then((data) => data.users);
+        return response.json();
+    });
+}
+
+export function getUsers() {
+    return fetchJson(USERS_API_URL).then((data) => data.users);
+}
+
+export function getUser(id) {
+    return fetchJson(`${USERS_API_URL}/${id}`);
 }
