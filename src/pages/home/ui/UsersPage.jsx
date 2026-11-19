@@ -1,4 +1,4 @@
-import Users from "../../../widgets/users/Users";
+import Users from "../../../widgets/users/usersList/UsersList";
 
 const UsersPage = () => {
     return <Users />;

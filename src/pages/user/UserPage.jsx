@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getUser } from "../../shared/api/users";
+import UserCard from "../../widgets/users/userCard/UserCard";
+import styles from "./UserPage.module.scss";
 
 const UserPage = () => {
     const { id } = useParams();
@@ -16,30 +18,20 @@ const UserPage = () => {
         getUser(id)
             .then(setUser)
             .catch((err) => setError(err.message))
-            .finally(setIsLoading(false));
+            .finally(() => {
+                setIsLoading(false);
+            });
     }, [id]);
 
     if (error) {
-        return <p>{error}</p>;
+        return <p className={styles.message}>{error}</p>;
     }
 
     if (isLoading) {
-        return <p>Завантаження...</p>;
+        return <p className={styles.message}>Завантаження...</p>;
     }
 
-    return (
-        <div>
-            <div>
-                <img
-                    src={user?.image}
-                    alt={`${user?.firstName} ${user?.lastName}`}
-                />
-                <h1>
-                    {user?.firstName} {user?.lastName}
-                </h1>
-            </div>
-        </div>
-    );
+    return <UserCard user={user} />;
 };
 
 export default UserPage;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getUsers } from "../../shared/api/users";
+import { getUsers } from "../../../shared/api/users";
 import { Link } from "react-router-dom";
-import styles from "./Users.module.scss";
+import styles from "./UsersList.module.scss";
 
 const Users = () => {
     const [users, setUsers] = useState([]);
