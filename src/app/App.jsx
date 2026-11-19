@@ -1,6 +1,7 @@
 import HomePage from "../pages/home/ui/HomePage";
 import CartsPage from "../pages/home/ui/CartsPage";
 import UsersPage from "../pages/home/ui/UsersPage";
+import UserPage from "../pages/user/UserPage";
 import Header from "../widgets/home/header/Header";
 import Footer from "../widgets/home/footer/Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -11,10 +12,11 @@ function App() {
         <Router>
             <div className={styles.app}>
                 <Header />
-                <main>
+                <main className={styles.main}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/carts" element={<CartsPage />} />
+                        <Route path="/users/:id" element={<UserPage />} />
                         <Route path="/users" element={<UsersPage />} />
                     </Routes>
                 </main>
