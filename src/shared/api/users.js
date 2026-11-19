@@ -1,4 +1,5 @@
 const USERS_API_URL = "https://dummyjson.com/users";
+const CARTS_API_URL = "https://dummyjson.com/carts";
 
 function fetchJson(url) {
     return fetch(url).then((response) => {
@@ -16,4 +17,8 @@ export function getUsers() {
 
 export function getUser(id) {
     return fetchJson(`${USERS_API_URL}/${id}`);
+}
+
+export function getUserCarts(id) {
+    return fetchJson(`${CARTS_API_URL}/user/${id}`).then((data) => data.carts);
 }

@@ -4,7 +4,7 @@ import { getUser } from "../../shared/api/users";
 import UserCard from "../../widgets/users/userCard/UserCard";
 import styles from "./UserPage.module.scss";
 
-const UserPage = () => {
+function UserPage() {
     const { id } = useParams();
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +31,7 @@ const UserPage = () => {
         return <p className={styles.message}>Завантаження...</p>;
     }
 
-    return <UserCard user={user} />;
-};
+    return <UserCard key={user.id} user={user} />;
+}
 
 export default UserPage;
