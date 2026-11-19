@@ -1,0 +1,24 @@
+.notFound {
+    padding: 24px;
+    text-align: center;
+}
+
+.code {
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+.homeLink {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-decoration: none;
+    transition-duration: var(--transition-duration);
+
+    &:hover {
+        background-color: var(--color-dark-surface);
+    }
+}

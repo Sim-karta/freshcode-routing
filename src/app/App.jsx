@@ -2,6 +2,7 @@ import HomePage from "../pages/home/ui/HomePage";
 import CartsPage from "../pages/home/ui/CartsPage";
 import UsersPage from "../pages/home/ui/UsersPage";
 import UserPage from "../pages/user/UserPage";
+import NotFoundPage from "../pages/notFound/NotFoundPage";
 import Header from "../widgets/home/header/Header";
 import Footer from "../widgets/home/footer/Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -18,6 +19,7 @@ function App() {
                         <Route path="/carts" element={<CartsPage />} />
                         <Route path="/users/:id" element={<UserPage />} />
                         <Route path="/users" element={<UsersPage />} />
+                        <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </main>
                 <Footer />
