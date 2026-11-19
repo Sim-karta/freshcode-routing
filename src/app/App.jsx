@@ -11,7 +11,7 @@ function App() {
         <Router>
             <div className={styles.app}>
                 <Header />
-                <main>
+                <main className={styles.main}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/carts" element={<CartsPage />} />
